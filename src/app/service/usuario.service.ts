@@ -16,10 +16,6 @@ export class UsuarioService {
   public cadastrarUsuario(dados: usuario){
     return this.http.post(this.url+'/cadastrarUsuario', dados)
   }
-  public getUsuario(){
-    return this.http.get(this.url);
-  }
-
   public loginUsuario(dados: usuario){
     return this.http.post(this.url+'/login', dados);
   }

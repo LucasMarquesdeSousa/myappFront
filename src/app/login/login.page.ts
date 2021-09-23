@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   login(){
     if(this.formLogin.valid){
       const dados = this.formLogin.getRawValue();
-      this.service.loginUsuario(dados).subscribe( res=>{
+      this.service.loginUsuario(dados).subscribe(res=>{
         console.log(res)
       });
     }
