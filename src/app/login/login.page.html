@@ -1,9 +1,13 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-
+  <form [formGroup]='formLogin'>
+    <ion-input type='email' formControlName='email'>Email: </ion-input>
+    <ion-input type='password' formControlName='senha'>Senha: </ion-input>
+    <ion-button (click)='login()'>cadastro</ion-button>
+  </form>
 </ion-content>
