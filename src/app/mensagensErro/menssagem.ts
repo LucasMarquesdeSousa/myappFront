@@ -37,12 +37,10 @@ export class menssagens {
         }
         //return true;
         if (dados.controls.email.invalid) {
-            console.log('email errado')
             this.presentToast('E-mail está errado');
             return false;
         }
         if(dados.controls.senha.invalid){
-            console.log('senha errado')
             this.presentToast('Senha está errado');
             return false;
         }
