@@ -5,10 +5,34 @@
 </ion-header> -->
 <ion-content>
   <form [formGroup]='form'>
-    <ion-input type='text' formControlName='name'>Name: </ion-input>
-    <ion-input type='email' formControlName='email'>Email: </ion-input>
-    <ion-input type='password' formControlName='senha'>Senha: </ion-input>
-    <ion-input type='password' formControlName='confSenha'>Confirma senha</ion-input>
-    <ion-button (click)='cadastroUsuario()'>cadastro</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-item>
+              <ion-label position='stacked' class='ion-text-wrap'>Nome</ion-label>
+              <ion-input placeholder='Digite nome' type='text' formControlName='name'></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label position='stacked'>E-mail</ion-label>
+              <ion-input placeholder='Digite seu email' type='email' formControlName='email'></ion-input>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label position='stacked'>Senha</ion-label>
+              <ion-input placeholder='Digite sua senha' type='password' formControlName='senha'></ion-input>
+            </ion-item>
+            
+            <ion-item>
+            <ion-label position='stacked'>Confirmar senha</ion-label>
+            <ion-input placeholder='Confirme sua senha' type='password' formControlName='confSenha'></ion-input>
+          </ion-item>
+          
+          <ion-button color='success' expand='block'  (click)='cadastroUsuario()'>cadastro</ion-button>
+        </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

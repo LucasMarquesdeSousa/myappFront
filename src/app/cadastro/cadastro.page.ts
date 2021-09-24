@@ -30,8 +30,9 @@ export class CadastroPage implements OnInit {
   }
 
   cadastroUsuario() {
-    //front end
-    if (this.menssagensErro.messageErro(this.form)) {
+    //front
+    const retorno = this.menssagensErro.messageErro(this.form)
+    if (!retorno.lenght) {
       const dados = this.form.getRawValue();
       this.service.cadastrarUsuario(dados).subscribe(
         res => {
@@ -58,6 +59,9 @@ export class CadastroPage implements OnInit {
           }
         }
       );
+    }
+    for (let i = 0; i < retorno.length; i++) {
+      this.menssagensErro.presentToast(retorno[i])
     }
   }
 }

@@ -23,31 +23,39 @@ export class menssagens {
         await alert.onDidDismiss();
     }
     async presentToast(mensagem: string) {
+
+
+
+        try{
+            this.toastController.dismiss();
+        }catch(e){
+            
+        }
         const toast = await this.toastController.create({
             message: mensagem,
-            // duration: 2000,
+            //duration: 2000,
+            cssClass: 'toast-control',
+            position: "bottom",
             buttons: ['cancel'],
         });
         toast.present();
     }
-    public messageErro(dados: any): boolean {
+    public messageErro(dados: any): any | [] {
+        let errors = []
         if (dados.controls.name.invalid) {
-            this.presentToast('Nome está errado');
-            return false;
+            // this.presentToast('Nome está errado');
+            errors.push("Nome está errado");
         }
         //return true;
         if (dados.controls.email.invalid) {
-            this.presentToast('E-mail está errado');
-            return false;
+            errors.push("E-mail está errado");
         }
         if(dados.controls.senha.invalid){
-            this.presentToast('Senha está errado');
-            return false;
+            errors.push("Senha está errado");
         }
         if(dados.get('senha').value != dados.get('confSenha').value){
-            this.presentToast('Senhas não conferem')
-            return false;
+            errors.push("Senhas não conferem");
         }
-        return true;
+        return errors;
     }
 }
